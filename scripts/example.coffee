@@ -15,7 +15,7 @@ module.exports = (robot) ->
     name = msg.message.user.name
     msg.send "hell #{name}"
 
-  robot.hear /get backlog/i, (msg) ->
+  robot.respond /get backlog$/i, (msg) ->
     url = "https://megumilog.backlog.jp/api/v2/issues?apiKey=#{backLogApiKey}"
     request = msg.http(url)
       .query("statusId[]": ["1", "2", "3"])
