@@ -9,7 +9,6 @@
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
 module.exports = (robot) ->
-  backLogApiKey = process.env.BACKLOG_API_KEY
   backLogApiKey = "dQHCTK5gx5S4uYndUsduslTte3ltuV60O1GQn0BCy7u2fEGF5JepDOt6upBuduva"
 
   robot.hear /hello/i, (msg) ->
