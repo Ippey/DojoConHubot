@@ -9,23 +9,21 @@
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
 module.exports = (robot) ->
-  backLogaAiKey = "dQHCTK5gx5S4uYndUsduslTte3ltuV60O1GQn0BCy7u2fEGF5JepDOt6upBuduva"
   robot.hear /hello/i, (msg) ->
     name = msg.message.user.name
     msg.send "hello #{name}"
 
-  robot.hear /get backlog/i (msg) ->
-    url = "https://megumilog.backlog.jp/api/v2/issues?apiKey=#{backLogaAiKey}"
-    keyword = ""
+  robot.hear /get backlog/i, (msg) ->
+    backLogApiKey = "dQHCTK5gx5S4uYndUsduslTte3ltuV60O1GQn0BCy7u2fEGF5JepDOt6upBuduva"
+    url = "https://megumilog.backlog.jp/api/v2/issues?apiKey=#{backLogApiKey}"
     request = msg.http(url)
-      .query(q: keyword)
       .get()
-    request(err, res, body) ->
+    request (err, res, body) ->
       json = JSON.parse body
       titles = []
-      for param in json:
-        titles.append(param.issueType.summary)
-      msg.send '¥n'.join(titles)
+      for param in json
+        titles.push(param.summary)
+      msg.send titles.join("\n")
 
 
   # robot.hear /badger/i, (res) ->
