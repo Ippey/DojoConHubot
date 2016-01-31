@@ -10,14 +10,15 @@
 
 module.exports = (robot) ->
   backLogApiKey = "dQHCTK5gx5S4uYndUsduslTte3ltuV60O1GQn0BCy7u2fEGF5JepDOt6upBuduva"
-  
+
   robot.hear /hello/i, (msg) ->
     name = msg.message.user.name
-    msg.send "hello #{name}"
+    msg.send "hell #{name}"
 
   robot.hear /get backlog/i, (msg) ->
     url = "https://megumilog.backlog.jp/api/v2/issues?apiKey=#{backLogApiKey}"
     request = msg.http(url)
+      .query("statusId[]": ["1", "2", "3"])
       .get()
     request (err, res, body) ->
       json = JSON.parse body
