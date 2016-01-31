@@ -23,7 +23,7 @@ module.exports = (robot) ->
     request(err, res, body) ->
       json = JSON.parse body
       titles = []
-      for param in json
+      for param in json:
         titles.append(param.issueType.summary)
       msg.send '¥n'.join(titles)
 
