@@ -22,10 +22,13 @@ module.exports = (robot) ->
       .get()
     request (err, res, body) ->
       json = JSON.parse body
-      titles = []
+      messages = []
       for param in json
-        titles.push(param.summary)
-      msg.send titles.join("\n")
+        messages.push(param.summary)
+        link = "  https://megumilog.backlog.jp/view/#{param.issueKey}"
+        messages.push(link)
+
+      msg.send messages.join("\n")
 
 
   # robot.hear /badger/i, (res) ->
