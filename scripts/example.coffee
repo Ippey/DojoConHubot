@@ -8,13 +8,13 @@
 #
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
-
+require 'newrelic'
 module.exports = (robot) ->
   backLogApiKey = process.env.BACKLOG_API_KEY
 
   robot.hear /hello/i, (msg) ->
     name = msg.message.user.name
-    msg.send "hell #{name}"
+    msg.send "hello! #{name}"
 
   robot.respond /get backlog$/i, (msg) ->
     url = "https://megumilog.backlog.jp/api/v2/issues?apiKey=#{backLogApiKey}"
