@@ -17,12 +17,10 @@
     "hubot-rules": "^0.1.1",
     "hubot-scripts": "^2.16.2",
     "hubot-shipit": "^0.2.0",
-    "hubot-slack": "^3.4.2"
+    "hubot-slack": "^3.4.2",
+    "newrelic": "^1.25.1"
   },
   "engines": {
     "node": "0.10.x"
   },
-  "dependencies": {
-    "newrelic": "^1.25.1"
-  }
 }
