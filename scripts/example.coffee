@@ -8,6 +8,8 @@
 #
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
+require 'newrelic'
+
 module.exports = (robot) ->
   backLogApiKey = process.env.BACKLOG_API_KEY
 
